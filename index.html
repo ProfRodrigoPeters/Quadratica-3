@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação: Função Quadrática</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col items-center min-h-screen p-6">
+
+    <div class="max-w-6xl w-full">
+        <header class="mb-6 text-center">
+            <h1 class="text-4xl font-bold text-blue-400 mb-2">Simulador de Função Quadrática</h1>
+            <p class="text-slate-400 text-lg">Visualização interativa em alta resolução</p>
+
+            <div class="text-3xl mt-4 font-mono bg-slate-800 p-4 rounded-lg inline-block border border-slate-700">
+                f(x) =
+                <span id="val-a" class="text-yellow-400 font-bold">1</span>x² +
+                <span id="val-b" class="text-green-400 font-bold">0</span>x +
+                <span id="val-c" class="text-red-400 font-bold">0</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-2 relative">
+                <canvas id="graphCanvas" width="900" height="600" class="w-full h-auto border border-slate-700 shadow-xl"></canvas>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 h-fit text-lg">
+                <h3 class="text-xl font-semibold mb-4 border-b border-slate-600 pb-2">Controles</h3>
+
+                <label class="block mb-5">Coeficiente a:
+                    <input type="range" id="slider-a" min="-5" max="5" step="0.1" value="1">
+                </label>
+
+                <label class="block mb-5">Coeficiente b:
+                    <input type="range" id="slider-b" min="-5" max="5" step="0.1" value="0">
+                </label>
+
+                <label class="block mb-5">Coeficiente c:
+                    <input type="range" id="slider-c" min="-5" max="5" step="0.1" value="0">
+                </label>
+
+                <button onclick="resetValues()" class="w-full py-3 text-lg bg-slate-700 hover:bg-slate-600 rounded-xl transition">
+                    Resetar Valores
+                </button>
+
+                <div class="mt-6 text-slate-300 space-y-2">
+                    <p><strong>Vértice:</strong> <span id="vert"></span></p>
+                    <p><strong>Raízes:</strong> <span id="roots"></span></p>
+                    <p><strong>Discriminante:</strong> <span id="disc"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
